@@ -4,24 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Color generater</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <script src="./script/script.js" defer></script>
+    <title>calculator</title>
   </head>
   <body>
     <div class="container">
       <div class="box">
         <div class="display">
-          <input type="text" placeholder="0" id="inputScreen" />
+          <input type="text"  id="inputScreen" />
         </div>
         <div class="functions">
           <div class="row">
             <button class="deg">Sin</button>
             <button class="f-e">Cos</button>
+            <button class="">Tan</button>
           </div>
         </div>
         <div class="btns">
           <div class="row">
-            <button class="">Tan</button>
+            <button class="">x<sup>2</sup></button>
             <button class="">π</button>
             <button class="">e</button>
             <button class="">C</button>
@@ -30,7 +32,7 @@
         </div>
         <div class="btns">
           <div class="row">
-            <button class="">x<sup>2</sup></button>
+            <button class="">√x</button>
             <button class="">1/x</button>
             <button class="">|x|</button>
             <button class="">exp</button>
@@ -39,7 +41,7 @@
         </div>
         <div class="btns">
           <div class="row">
-            <button class="">√x</button>
+            <button class="">x<sup>y</sup></button>
             <button class="">(</button>
             <button class="">)</button>
             <button class="">n!</button>
@@ -48,7 +50,7 @@
         </div>
         <div class="btns">
           <div class="row">
-            <button class="">x<sup>y</sup></button>
+            <button class="">10<sup>x</sup></button>
             <button class="">7</button>
             <button class="">8</button>
             <button class="">9</button>
@@ -57,7 +59,7 @@
         </div>
         <div class="btns">
           <div class="row">
-            <button class="">10<sup>x</sup></button>
+            <button class="">log</button>
             <button class="">4</button>
             <button class="">5</button>
             <button class="">6</button>
@@ -66,7 +68,7 @@
         </div>
         <div class="btns">
           <div class="row">
-            <button class="">log</button>
+            <button class="">ln</button>
             <button class="">1</button>
             <button class="">2</button>
             <button class="">3</button>
@@ -79,11 +81,10 @@
             <button class="">+/-</button>
             <button class="">0</button>
             <button class="">.</button>
-            <button class="">=</button>
+            <button class="equalBtn">=</button> <!--onclick="input.value=eval(input.value)"-->
           </div>
         </div>
       </div>
     </div>
-    <script src="./script.js"></script>
   </body>
 </html>
