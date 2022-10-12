@@ -3,9 +3,9 @@ const input = document.querySelector("input");
 
 for (const button of buttons) {
   button.addEventListener("click", (event) => {
-    var btnInputs = event.target.innerText;
+    let btnInputs = event.target.innerText;
     function calFeatures(btnInput) {
-      var calculator = {
+      let calculator = {
         'X': () => "*",
         "÷": () => "/",
         'mod': () => "%",
@@ -40,13 +40,8 @@ for (const button of buttons) {
         ? calculator[btnInput]()
         : btnInput;
     }
-    let checkBtn = ["=","π","C","⌫","e","x2","10x","ln","log","√x","3√x",'|x|','Sin','Cos','Tan','exp','+/-','1/x','n!'];
-    if (checkBtn.includes(btnInputs)) {
-      input.value = calFeatures(btnInputs);
-      console.log(input.value);
-    } else {
-      input.value = input.value + calFeatures(btnInputs);
-      console.log(input.value);
-    }
+    // let checkBtn = ["=","π","C","⌫","e","x2","10x","ln","log","√x","3√x",'|x|','Sin','Cos','Tan','exp','+/-','1/x','n!'];
+    let checkBtn = ['+','-','X','÷','mod','xy'];
+    input.value = checkBtn.includes(btnInputs) ? input.value + calFeatures(btnInputs) : calFeatures(btnInputs);
   });
 }
