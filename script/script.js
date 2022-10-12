@@ -5,9 +5,9 @@ const equalBtn = document.querySelector(".equalBtn");
 for (const button of buttons) {
   button.addEventListener("click", (event) => {
     btnInputs = event.target.innerText;
-
+    
     if (btnInputs == "=") {
-      getResult();
+      input.value = eval(input.value);
       nullBtnInput();
     } else {
       if (btnInputs == "X") {
@@ -16,61 +16,78 @@ for (const button of buttons) {
         btnInputs = "/";
       } else if (btnInputs == "mod") {
         btnInputs = "%";
-      } else if (btnInputs == "C") {
-        nullBtnInput();
-        input.value = "";
-      } else if (btnInputs == "⌫") {
-        nullBtnInput();
-        input.value = input.value.substr(0, input.value.length - 1);
       } else if (btnInputs == "xy") {
         btnInputs = "**";
+      } else if (btnInputs == "C") {
+        input.value = "";
+        nullBtnInput();
+      } else if (btnInputs == "⌫") {
+        input.value = input.value.substr(0, input.value.length - 1);
+        nullBtnInput();
       } else if (btnInputs == "π") {
-        nullBtnInput();
         input.value = input.value * Math.PI;
-      } else if (btnInputs == "e") {
         nullBtnInput();
+      } else if (btnInputs == "e") {
         input.value = input.value * Math.E;
+        nullBtnInput();
       } else if (btnInputs == "x2") {
-        square(input.value);
+        result = Math.pow(Number(input.value), 2);
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "10x") {
-        powerOfTen(input.value);
+        result = Math.pow(10, Number(input.value));
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "ln") {
-        ln(input.value);
+        result = Math.log(Number(value));
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "log") {
-        log(input.value);
+        result = Math.log10(Number(input.value));
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "√x") {
-        squareRoot(input.value);
+        result = Math.sqrt(Number(input.value));
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "3√x") {
-        cubeRoot(input.value);
+        result = Math.cbrt(Number(input.value));
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "|x|") {
-        absolute(input.value);
-        nullBtnInput();
-      } else if (btnInputs == "+/-") {
-        sinChanged(input.value);
-        nullBtnInput();
-      } else if (btnInputs == "n!") {
-        factorial(input.value);
+        result = Math.abs(Number(input.value));
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "Sin") {
-        sin(input.value);
+        result = Math.sin(Number(input.value));
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "Cos") {
-        cos(input.value);
+        result = Math.cos(Number(input.value));
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "Tan") {
-        tan(input.value);
+        result = Math.tan(Number(input.value));
+        input.value = result.toString();
         nullBtnInput();
-      } else if (btnInputs == "1/x") {
-        oneDivX(input.value);
+      } else if (btnInputs == "+/-") {
+        result = Number(input.value) * -1;
+        input.value = result.toString();
         nullBtnInput();
       } else if (btnInputs == "exp") {
-        euler(input.value);
+        result = Math.exp(Number(input.value));
+        input.value = result.toString();
+        nullBtnInput();
+      } else if (btnInputs == "n!") {
+        let f = 1;
+        for (let i = 1; i <= input.value; i++) {
+          f *= i;
+        }
+        input.value = f.toString();
+        nullBtnInput();
+      } else if (btnInputs == "1/x") {
+        result = 1 / Number(input.value);
+        input.value = result.toString();
         nullBtnInput();
       }
       input.value += btnInputs;
@@ -78,69 +95,6 @@ for (const button of buttons) {
     }
   });
 }
-const getResult = () => {
-  input.value = eval(input.value);
-};
-function square(value) {
-  result = Number(value) * Number(value);
-  input.value = result.toString();
-}
-function powerOfTen(value) {
-  result = Math.pow(10, Number(value));
-  input.value = result.toString();
-}
-function ln(value) {
-  result = Math.log(Number(value));
-  input.value = result.toString();
-}
-function log(value) {
-  result = Math.log10(Number(value));
-  input.value = result.toString();
-}
-function squareRoot(value) {
-  result = Math.sqrt(Number(value));
-  input.value = result.toString();
-}
-function cubeRoot(value) {
-  result = Math.cbrt(Number(value));
-  input.value = result.toString();
-}
-function absolute(value) {
-  result = Math.abs(Number(value));
-  input.value = result.toString();
-}
-function sinChanged(value) {
-  result = Number(value) * -1;
-  input.value = result.toString();
-}
-function sin(value) {
-  result = Math.sin(Number(value));
-  input.value = result.toString();
-}
-function tan(value) {
-  result = Math.tan(Number(value));
-  input.value = result.toString();
-}
-function cos(value) {
-  result = Math.cos(Number(value));
-  input.value = result.toString();
-}
-function factorial(value) {
-  let f = 1;
-  for (let i = 1; i <= value; i++) {
-    f *= i;
-  }
-  input.value = f.toString();
-}
-function oneDivX(value) {
-  result = 1 / Number(value);
-  input.value = result.toString();
-}
-function euler(value) {
-  result = Math.exp(Number(value));
-  input.value = result.toString();
-}
-
 // for null btnInput
 const nullBtnInput = () => {
   btnInputs = "";
